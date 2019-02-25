@@ -15,7 +15,7 @@ const imgArray = [
 let i = 2
 let distance = 47
 let newElement = img.cloneNode(true)
-newElement.src = `../src/${imgArray[i]}`
+newElement.src = `./src/${imgArray[i]}`
 let select = ul.children[5]
 let prevSelect = ul.children[4]
 select.style.color = 'red'
@@ -32,7 +32,7 @@ setInterval(() => {
     img = newElement
     newElement = img.cloneNode(true)
     i = i === 7 ? 0 : i + 1
-    newElement.src = `../src/${imgArray[i]}`
+    newElement.src = `./src/${imgArray[i]}`
   }, 1500)
   setTimeout(() => {
     let temp = ul.lastElementChild.cloneNode(true)
