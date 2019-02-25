@@ -13,25 +13,78 @@ body > main {
   grid-template-areas: "header  aside" "content aside" "footer  footer";
   grid-columns: 3fr 2fr;
 }
-body > main > .header {
-  grid-area: header;
-}
-body > main > .header > .header__text {
-  color: #ffffff;
-  font-weight: bold;
-}
-body > main > .article > .article__img {
-  animation-name: fade-right;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-}
 @keyframes fade-right {
   0% {
-    transform: translateX(-100px);
+    transform: translateX(-200px);
     opacity: 0;
   }
   100% {
     transform: translateX(0);
     opacity: 1;
   }
+}
+body > main > .header {
+  grid-area: header;
+  z-index: 3;
+  margin-top: 2rem;
+  margin-left: 4rem;
+  animation-name: fade-right;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+}
+body > main > .header > .header__text {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+body > main > .article > .article__img {
+  position: absolute;
+  top: 0;
+  left: -300px;
+  animation-name: fade-right;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  height: 100%;
+}
+body > main > .article > .article__img.article__img--active {
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -ms-transition: 1.5s;
+  -o-transition: 1.5s;
+  transition: 1.5s;
+  transform: translateX(200px);
+  opacity: 0;
+}
+body > main > .aside {
+  grid-area: aside;
+  display: flex;
+  margin-left: 45rem;
+}
+body > main > .aside > .aside__img {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  left: 20px;
+  top: 49.5%;
+  animation-name: fade-right;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  z-index: 1;
+}
+body > main > .aside > .aside__list.list {
+  list-style: none;
+  overflow: hidden;
+  height: 44.5rem;
+  animation-name: fade-right;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  border-left: 1px #ffffff solid;
+}
+body > main > .aside > .aside__list.list > .list__element {
+  top: -79px;
+  position: relative;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-top: 2rem;
 }

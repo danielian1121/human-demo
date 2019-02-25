@@ -14,29 +14,88 @@ body {
       'header  aside'
       'content aside'
       'footer  footer';
-      columns: 3fr 2fr
+      columns: 3fr 2fr;
+    }
+    @keyframes fade-right {
+      0% {
+        transform: translateX(-200px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
     > .header {
       grid-area: header;
+      z-index: 3;
+      margin: {
+        top: 2rem;
+        left: 4rem;
+      }
       > .header__text {
         color: #ffffff;
-        font-weight: bold;
+        font: {
+          size: 2.5rem;
+          weight: bold;
+        }
       }
+      animation-name: fade-right;
+      animation-duration: 1.5s;
+      animation-iteration-count: 1;
     }
     > .article {
       > .article__img {
+        position: absolute;
+        top: 0;
+        left: -300px;
         animation-name: fade-right;
-        animation-duration: 2s;
+        animation-duration: 1.5s;
         animation-iteration-count: 1;
-        @keyframes fade-right {
-          0% {
-            transform: translateX(-100px);
-            opacity: 0;
+        height: 100%;
+        &.article__img--active {
+          -webkit-transition: 1.5s;
+          -moz-transition: 1.5s;
+          -ms-transition: 1.5s;
+          -o-transition: 1.5s;
+          transition: 1.5s;
+          transform: translateX(200px);
+          opacity: 0;
+        }
+      }
+    }
+    > .aside {
+      grid-area: aside;
+      display: flex;
+      margin-left: 45rem;
+      > .aside__img {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        left: 20px;
+        top: 49.5%;
+        animation-name: fade-right;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        z-index: 1;
+      }
+      > .aside__list.list {
+        list-style: none;
+        overflow: hidden;
+        height: 44.5rem;
+        animation-name: fade-right;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        border-left: 1px #ffffff solid;
+        > .list__element {
+          top: -79px;
+          position: relative;
+          color: #ffffff;
+          font: {
+            size: 2.5rem;
+            weight: bold;
           }
-          100% {
-            transform: translateX(0);
-            opacity: 1;
-          }
+          padding-top: 2rem;
         }
       }
     }
